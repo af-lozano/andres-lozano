@@ -1,0 +1,93 @@
+---
+export const prerender = false;
+
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { getTranslations } from "../i18n/utils";
+
+const t = getTranslations(Astro.preferredLocale);
+---
+
+<Layout>
+  <main>
+    <Nav />
+    <h1>{t["experience.header"]}</h1>
+    <div class="main-section">
+      <section class="experience-container">
+        <div class="experience-container__header">
+          <h2>{t["experience.anthology.title"]}</h2>
+          <h3>{t["experience.anthology.subtitle"]}</h3>
+        </div>
+        <div class="experience-container__content">
+          <p set:html={t["experience.anthology.content"]} />
+          <ul>
+            <li set:html={t["experience.anthology.bullet.first"]} />
+            <li set:html={t["experience.anthology.bullet.second"]} />
+          </ul>
+        </div>
+        <div class="experience-container__header">
+          <h2>{t["experience.amarilo.title"]}</h2>
+          <h3>{t["experience.amarilo.subtitle"]}</h3>
+        </div>
+        <div class="experience-container__content">
+          <!-- <p set:html={t["experience.anthology.content"]} /> -->
+          <ul>
+            <li set:html={t["experience.amarilo.bullet.first"]} />
+            <li set:html={t["experience.amarilo.bullet.second"]} />
+            <li set:html={t["experience.amarilo.bullet.third"]} />
+          </ul>
+        </div>
+        <div class="experience-container__header">
+          <h2>{t["experience.capital.title"]}</h2>
+          <h3>{t["experience.capital.subtitle"]}</h3>
+        </div>
+        <div class="experience-container__content">
+          <!-- <p set:html={t["experience.anthology.content"]} /> -->
+          <ul>
+            <li set:html={t["experience.capital.bullet.first"]} />
+            <li set:html={t["experience.capital.bullet.second"]} />
+            <li set:html={t["experience.capital.bullet.third"]} />
+          </ul>
+        </div>
+        <div class="experience-container__header">
+          <h2>{t["experience.bolivar.title"]}</h2>
+          <h3>{t["experience.bolivar.subtitle"]}</h3>
+        </div>
+        <div class="experience-container__content">
+          <!-- <p set:html={t["experience.anthology.content"]} /> -->
+          <ul>
+            <li set:html={t["experience.bolivar.bullet.first"]} />
+            <li set:html={t["experience.bolivar.bullet.second"]} />
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    display: grid;
+    padding: 5rem;
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 1fr;
+    place-items: start;
+    margin: auto;
+    max-width: calc(70ch + 10rem);
+  }
+  .experience-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+  }
+  .experience-container__header {
+    position: sticky;
+    height: min-content;
+    top: 10px;
+    background-color: canvas;
+  }
+  .experience-container__content {
+  }
+</style>

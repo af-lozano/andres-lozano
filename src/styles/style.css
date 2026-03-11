@@ -1,0 +1,25 @@
+@layer reset;
+
+@layer reset {
+  *{
+    box-sizing: border-box;
+  }
+  h2,
+  h3 {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+  p{
+    text-wrap: stable;
+  }
+  p,
+  li {
+    line-height: 1.5rem;
+  }
+  h1{
+    view-transition-name: header;
+  }
+  main{
+    view-transition-name:main;
+  }
+}

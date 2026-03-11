@@ -1,23 +1,35 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "../styles/style.css";
+const locale = Astro.preferredLocale || "es";
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/andres.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Andrés Lozano</title>
+  </head>
+  <body>
+    <ClientRouter />
+    <slot />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+  p,
+  li {
+    line-height: 3.5rem;
+    color: aliceblue;
+  }
 </style>

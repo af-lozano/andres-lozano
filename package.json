@@ -9,6 +9,12 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.13",
     "astro": "^5.17.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
+    "wrangler": "^4.72.0"
   }
 }
