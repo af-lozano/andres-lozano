@@ -25,12 +25,16 @@ const t = getTranslations(Astro.preferredLocale);
 <style>
   main {
     display: grid;
-    padding: 5rem;
+    padding: 1rem;
     grid-template-rows: auto auto 1fr;
     place-items: start;
     margin: auto;
     min-height: 100%;
     max-width: calc(70ch + 10rem);
+    margin-block-end: 50px;
+    @media (width > 600px) {
+      padding: 5rem;
+    }
   }
   section {
     max-width: 70ch;
