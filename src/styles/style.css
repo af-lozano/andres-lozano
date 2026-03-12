@@ -9,8 +9,11 @@
     font-size: 1.2rem;
     line-height: 1.5rem;
   }
+  h1,h2,h3,p{
+    margin:0;
+  }
   p{
-    text-wrap: stable;
+    text-wrap: pretty;
   }
   p,
   li {
@@ -18,6 +21,7 @@
   }
   h1{
     view-transition-name: header;
+    margin-block-end: 0.5rem;
   }
   main{
     view-transition-name:main;

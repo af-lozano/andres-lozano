@@ -29,7 +29,7 @@ const t = getTranslations(Astro.preferredLocale);
     grid-template-rows: auto auto 1fr;
     place-items: start;
     margin: auto;
-    min-height: 100%;
+    height: 100%;
     max-width: calc(70ch + 10rem);
     padding-block-end: 50px;
     @media (width > 600px) {
@@ -38,5 +38,8 @@ const t = getTranslations(Astro.preferredLocale);
   }
   section {
     max-width: 70ch;
+  }
+  p {
+    margin-block-end: 1rem;
   }
 </style>
