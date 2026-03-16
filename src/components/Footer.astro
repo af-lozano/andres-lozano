@@ -1,16 +1,70 @@
-<section>
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+const path = Astro.url.pathname.replace(/^\/[a-z]{2}(\/|$)/, "/");
+const locale = Astro.currentLocale;
+---
+
+<footer>
+  <section>
+    <select>
+      <option value="system" selected>System</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+    <div class="locale-selection">
+      <a href={getRelativeLocaleUrl("es", path)} data-active={locale === "es"} }
+        >es</a
+      >
+      <a href={getRelativeLocaleUrl("en", path)} data-active={locale === "en"}
+        >en</a
+      >
+    </div>
+  </section>
   <p>Made in Bogotá 🇮🇩</p>
-</section>
+</footer>
+<script>
+  import { setLocale } from "../i18n/utils";
+  setLocale("en");
+</script>
 <style>
   section {
-    position: relative;
-    text-align: center;
-    place-content: center;
+    display: grid;
     place-items: center;
+    gap: 1rem;
+    grid-template-columns: auto auto;
+  }
+  selection {
+    width: min-content;
+    justify-self: center;
+  }
+  .locale-selection {
+    a {
+      text-decoration: none;
+      color: unset;
+    }
+    a[data-active="true"] {
+      font-weight: bold;
+    }
+    & :not(:last-child) {
+      &:after {
+        content: "|";
+        font-weight: unset;
+        padding-inline: 1rem;
+      }
+    }
   }
   p {
-    font-size: 0.75rem;
+    font-size: 0.5rem;
     display: inline-block;
     font-weight: bold;
+  }
+  footer {
+    height: fit-content;
+    place-self: center;
+    align-self: center;
+    display: grid;
+    gap: 0.5rem;
+    justify-items: center;
+    justify-self: center;
   }
 </style>

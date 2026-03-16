@@ -1,15 +1,19 @@
 ---
+interface Props {
+  locale: string | undefined;
+}
+
+const { locale } = Astro.props;
 import { getTranslations } from "../i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
-const currentPath = Astro.url.pathname;
-const locale = Astro.preferredLocale || "es";
-
-const t = getTranslations(Astro.preferredLocale);
+const currentPath = Astro.url.pathname.replace(/^\/[a-z]{2}(\/|$)/, "/");
+const t = getTranslations(locale || "es");
 
 const links = [
   { href: "/", label: t["nav.home"] },
-  { href: "/experience", label: t["nav.experience"] },
-  { href: "/about", label: t["nav.about"] },
+  { href: "/experience/", label: t["nav.experience"] },
+  { href: "/about/", label: t["nav.about"] },
 ];
 ---
 
@@ -18,7 +22,9 @@ const links = [
     {
       links.map((link) => (
         <li class:list={[{ "active-link": currentPath === link.href }]}>
-          <a href={link.href}>{link.label}</a>
+          <a href={getRelativeLocaleUrl(locale || "es", link.href)}>
+            {link.label}
+          </a>
         </li>
       ))
     }
@@ -37,6 +43,9 @@ const links = [
     anchor-name: --ancla;
   }
   nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
     view-transition-name: navigation;
     padding-inline: 1rem;
     padding-block: 0.25rem;

@@ -4,6 +4,22 @@
   *{
     box-sizing: border-box;
   }
+  html{
+    color-scheme:light dark;
+    &:has(option[value="light"]:checked){
+      color-scheme: light;
+    }
+    &:has(option[value="dark"]:checked){
+      color-scheme: dark;
+    }
+  --text: light-dark(#21150d,#f2e6de) ;
+  --background: light-dark(#faf4f0,#0f0905);
+  --primary: light-dark(#684027,#d8b097);
+  --secondary: light-dark(#92d48c,#31732b);
+  --accent: light-dark(#43b173,#4ebc7d);
+  color: var(--text);
+  background-color:var(--background);
+  }
   h2,
   h3 {
     font-size: 1.2rem;

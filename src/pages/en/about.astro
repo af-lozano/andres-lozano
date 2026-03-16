@@ -1,0 +1,45 @@
+---
+export const prerender = false;
+
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getTranslations } from "../../i18n/utils";
+
+const t = getTranslations("en");
+---
+
+<Layout>
+  <main>
+    <Nav locale="en" />
+    <h1>{t["home.header"]}</h1>
+    <section>
+      <p>{t["about.first"]}</p>
+      <p>{t["about.second"]}</p>
+      <p>{t["about.third"]}</p>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    display: grid;
+    padding: 1rem;
+    grid-template-rows: auto auto 1fr;
+    place-items: start;
+    margin: auto;
+    height: 100%;
+    max-width: calc(70ch + 10rem);
+    padding-block-end: 50px;
+    @media (width > 600px) {
+      padding: 5rem;
+    }
+  }
+  section {
+    max-width: 70ch;
+  }
+  p {
+    margin-block-end: 1rem;
+  }
+</style>

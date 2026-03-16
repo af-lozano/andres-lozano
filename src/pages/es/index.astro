@@ -1,0 +1,39 @@
+---
+export const prerender = false;
+
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
+import Nav from "../../components/Nav.astro";
+import { getTranslations } from "../../i18n/utils";
+
+const t = getTranslations(Astro.preferredLocale);
+---
+
+<Layout>
+  <main>
+    <h1>{t["home.header"]}</h1>
+    <ul>
+      <li>{t["home.bullets.first"]}</li>
+      <li>{t["home.bullets.second"]}</li>
+      <li>{t["home.bullets.third"]}</li>
+    </ul>
+    <Nav locale="es" />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    box-sizing: border-box;
+    display: grid;
+    place-content: center;
+    place-self: center;
+    margin: auto;
+    padding: 1rem;
+    height: 100%;
+    min-height: 100%;
+  }
+  li {
+    max-width: 60ch;
+  }
+</style>

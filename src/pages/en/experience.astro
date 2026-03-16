@@ -1,17 +1,17 @@
 ---
 export const prerender = false;
 
-import Layout from "../layouts/Layout.astro";
-import Nav from "../components/Nav.astro";
-import Footer from "../components/Footer.astro";
-import { getTranslations } from "../i18n/utils";
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import { getTranslations } from "../../i18n/utils";
 
-const t = getTranslations(Astro.preferredLocale);
+const t = getTranslations("en");
 ---
 
 <Layout>
   <main>
-    <Nav />
+    <Nav locale="en" />
     <h1>{t["experience.header"]}</h1>
     <div class="main-section">
       <section class="experience-container">
