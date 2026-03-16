@@ -105,9 +105,9 @@ const t = getTranslations("en");
     height: min-content;
     background: linear-gradient(
       to bottom,
-      oklch(from canvas l c h / 0.9),
-      oklch(from canvas l c h / 0.9) 75%,
-      oklch(from canvas l c h / 0.5)
+      oklch(from var(--background) l c h / 0.9),
+      oklch(from var(--background) l c h / 0.9) 75%,
+      oklch(from var(--background) l c h / 0.5)
     );
     top: 0;
     @media (width > 600px) {

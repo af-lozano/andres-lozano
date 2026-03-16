@@ -12,6 +12,12 @@ const locale = Astro.preferredLocale || "es";
     <link rel="icon" href="/andres.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>Andrés Lozano</title>
+    <script is:inline>
+      const theme = localStorage.getItem("theme");
+      if (theme && theme !== "system") {
+        document.documentElement.setAttribute("data-theme", theme);
+      }
+    </script>
   </head>
   <body>
     <ClientRouter />

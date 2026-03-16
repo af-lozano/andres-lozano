@@ -7,7 +7,7 @@ const locale = Astro.currentLocale;
 <footer>
   <section>
     <select>
-      <option value="system" selected>System</option>
+      <option value="system">System</option>
       <option value="light">Light</option>
       <option value="dark">Dark</option>
     </select>
@@ -23,8 +23,26 @@ const locale = Astro.currentLocale;
   <p>Made in Bogotá 🇮🇩</p>
 </footer>
 <script>
-  import { setLocale } from "../i18n/utils";
-  setLocale("en");
+  function initTheme() {
+    const savedTheme = localStorage.getItem("theme") || "system";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+    const select = document.querySelector<HTMLSelectElement>("footer select");
+    if (select) {
+      select.value = savedTheme;
+    }
+  }
+
+  initTheme();
+  document.addEventListener("astro:page-load", initTheme);
+
+  document.addEventListener("change", (e) => {
+    const select = e.target as HTMLSelectElement;
+    if (select.matches?.("footer select")) {
+      const theme = select.value;
+      localStorage.setItem("theme", theme);
+      document.documentElement.setAttribute("data-theme", theme);
+    }
+  });
 </script>
 <style>
   section {
